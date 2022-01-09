@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Posicionamiento SEO -->
+  <meta name="description" content="Ingresa ya y encuentra las mejores recetas veganas, en especial postres y muchos platos deliciosos, llenos de sabor.">
+  <meta name="keywords" content="comida, food, vegan, veganismo, alimentos, vegetales, postres veganos, celíacos, sin gluten, gluten, gluten free, vegetariano, plantas, salud, noticias alimenticias">
+  <title>Marketplace : Comida dulce y saludable</title>
+  <!-- Boostrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+   <!-- google fonts  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <!-- icono web -->
+  <link rel="shortcut icon" href="../img/sandia.png">
+   <!-- Moralis SDK code -->
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+  <!-- Jquery src -->
+  <!-- <script src="../js/Jquery.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <!-- hoja de estilos  -->
+   <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <!-- area de encabezado -->
+  <header class="header">       
+    <nav class="navbar navbar-expand-lg navbar-light container-fluid">
+      <div class="container-fluid">
+        <div class="logo-container">
+          <div class="logo"><img src="../img/sandia.png" alt="logo-sandia"></div>
+        </div>
+        <a class="navbar-brand" href="../index.html"><h1 class="titulo-web">Sofia Cocina</h1></a>            
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+          <ul class="navbar-nav ">
+            <li class="boton-menu nav-item">
+              <a class="nav-link"href="../index.html">Home</a>
+            </li> 
+            <li class="boton-menu nav-item">
+              <a class="nav-link" href="Recetario.html">Recetario</a>
+            </li>
+            <li class="boton-menu nav-item">
+              <a class="nav-link" href="Canal.html">Canal</a>
+            </li>
+            <li class="boton-menu nav-item">
+              <a class="nav-link" href="Historia.html">Historia</a>
+            </li>
+            <li class="boton-menu nav-item">
+              <a class="nav-link" href="Contacto.html">Contacto</a>
+            </li>
+            <li class="boton-menu nav-item">
+              <a class="nav-link" href="Marketplace.html">Marketplace</a>
+          </li>                
+          </ul>
+        </div>
+      </div>
+      <a><img id="btn-login" class="img-menu" src="../img/metamask-icon.png" alt="metamask-icon"></a>          
+      <a href="https://www.tiktok.com/@sofiacocinaoficial?" target="_blank"><img class="img-menu" src="../img/tiktok.png" alt="icono-tiktok"></a>
+      <a href="https://www.instagram.com/sofiacocinaoficial/?hl=es" target="_blank"><img class="img-menu" src="../img/insta.png" alt="icono-insta"></a>
+      <a href="https://www.youtube.com/channel/UCdNXrC4x5i7mVlZ-j1ar9DA" target="_blank"><img class="img-menu" src="../img/youtube.png" alt="icono-youtube"></a>        
+    </nav>
+  </header>
+  <!-- Divisor principal -->
+  <div class="container-fluid dex-area id="area-dex">
+    <div>
+      <img class="dex-logo" src="../imgSofiaCocina/pancakeswap.png" alt="pancakeswap-dex">
+    </div>
+    
+    <div>
+    <img class="dex-logo" src="../imgSofiaCocina/binance.png" alt="binance-smart-chain">  
+    </div>
+    
+  </div>
+
+  <!-- Smart Contract -->
+  <div class="box-token">
+    <h3 class="titulo-token">Token $SOFI</h3>
+    <p id ="n-contrato" class="token-list center">0xFD3b859A535BEe2eFD9A3f5f106538532eD9F23B</p>
+    <button id="copiar-smart-contract" type="button" class="boton-copiar" onclick="copyToClickBoard()" >Copiar</button>
+    
+  </div>
+
+  <!-- Login con metamask -->
+  <div class="info-login">
+    <p>Para iniciar sesion con Metamask, debes agregar la extension en tu navegador favorito desde <a href="http://www.metamask.io" target="_blank">www.metamask.io</a></p>
+    <button id="btn-logout">Salir</button>
+    <button id="btn-get-stats">Refresh Stats</button>
+    <ul id="gas-stats"></ul>
+    <p class="alert alert-warning" role="alert">El token generado actualmente se encuentra desarrollado en la TestNet
+      <p>Si deseas obtener el Token <strong>$SOFI</strong> envianos un mensaje con tu wallet "Recuerda agregar la TESTNET de la red Binance Smart Chain"</p>
+    </p>
+    <ul class="alert alert-primary info-token" role="alert">
+      <li>Token name: Sofia Cocina</li>
+      <li>Token symbol: SOFI</li>
+      <li>Token decimal: 9</li>
+      <li>Token total supply: 1B (1.000.000.000)</li>
+      <li>Token total supply: 1B (1.000.000.000)</li>
+      <li>Dev Wallet : 0x4E41Ee5299f4DD4efF948d13B7557ab85a1Bf3A5</li>
+      <a class="border" href="https://testnet.bscscan.com/address/0xFD3b859A535BEe2eFD9A3f5f106538532eD9F23B" target="_blank">Ver en la BSC Scan "Testnet"</a>
+    </ul>
+  </div>
+  <!-- area de agregar al carrito y  mi cuenta  -->
+
+  <main class="container-fluid main-area">
+    <div class="container">
+      <h2>Articulos a la venta</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Acción</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody id="items"></tbody>
+        <tfoot>
+          <tr id="footer">
+            <th scope="row" colspan="5">Carrito vacío</th>
+          </tr>
+        </tfoot>
+      </table>
+      <br>
+      <div class="row" id="cards"></div>
+      <template id="template-footer">
+        <th scope="row" colspan="2"><img src="../icons/carrito-de-compras.png" class="img-cart" alt=""></th>
+        
+        <td>10</td>
+        <td>
+            <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+                vaciar todo
+            </button>
+        </td>
+        <td class="font-weight-bold">$ <span>5000</span></td>
+    </template>
+    <template id="template-carrito">
+      <tr>
+        <th scope="row">id</th>
+        <td>Café</td>
+        <td>1</td>
+        <td>
+            <button class="btn btn-info btn-sm">
+                +
+            </button>
+            <button class="btn btn-danger btn-sm">
+                -
+            </button>
+        </td>
+        <td>$ <span>500</span></td>
+      </tr>
+    </template>
+    </div>
+  
+  
+    <div class="item-productos">
+      <template id="template-card">
+        <div class="col-md-3 col-12 mb-2">
+          <div class="card">
+            <img src="" alt="" class="card-img-top img-producto">
+            <div class="card-body">
+              <h5>Titulo</h5>
+              <p>precio</p>
+              <button class="btn btn-dark">Comprar</button>
+            </div>
+          </div>
+        </div>
+      </template>
+    
+    </div>
+    <br>
+    <br>  
+  </main>
+
+  <br>
+  <br>
+
+  <!-- Pie de pagina -->
+  <footer class="area-footer">
+    <div>
+      <div class="footer-info">
+        <h3>Informacion nutricional</h3>
+        <p>La nutrición vegana se refiere a los aspectos nutricionales y de salud humana de las dietas veganas. Una dieta vegana bien planificada y equilibrada es adecuada para cumplir todas las recomendaciones de nutrientes en cada etapa de la vida humana.</p>
+        <p class="advertencia">Si necesita mas informacion sobre el habito alimenticio a base de plantas, consulte con un nutricionista.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/carrito.js"></script>
+  <script src="../js/animacionesJQ.js"></script>
+  <script src="../js/Pre-entrega-con-Jquery.js"></script>
+  <script src="../js/javascript.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>

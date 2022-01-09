@@ -1,0 +1,33 @@
+[
+    {
+      "precio": 5000,
+      "id": 1,
+      "title": "Remera personalizada",
+      "itemImage": "../img/Custom-Artboard.png"
+    },
+    {
+      "precio": 3000,
+      "id": 2,
+      "title": "Delantal personalizado",
+      "itemImage": "../img/Custom-Artboard2.png"
+    },
+    {
+      "precio": 1000,
+      "id": 3,
+      "title": "Recetario del mes",
+      "itemImage": "../img/Custom-Artboard3.png"
+    },
+    {
+      "precio": 10000,
+      "id": 4,
+      "title": "Set de Utencilios",
+      "itemImage": "../img/Custom-Artboard4.png"
+    },
+    {
+      "precio": 1000,
+      "id": 5,
+      "title": "Mugs personalizadas",
+      "itemImage": "../img/Custom-Artboard5.png"
+    }
+
+  ]
